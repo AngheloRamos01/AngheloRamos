@@ -8,7 +8,7 @@ import {
   BiLogoJava,
   BiLogoJavascript,
 } from "react-icons/bi";
-import { FaFigma, FaPhp } from "react-icons/fa";
+import { FaFigma, FaPhp, FaLaravel } from "react-icons/fa";
 import { SiMysql, SiCanva } from "react-icons/si";
 import { DiPhotoshop } from "react-icons/di";
 
@@ -96,6 +96,13 @@ const Skills = () => {
       name: "Canva",
       child: (
         <SiCanva className="h-8 w-8 sm:h-9 sm:w-9 md:h-12 md:w-12 lg:h-14 lg:w-14" />
+      ),
+    },
+    {
+      id: 12,
+      name: "Laravel",
+      child: (
+        <FaLaravel className="h-8 w-8 sm:h-9 sm:w-9 md:h-12 md:w-12 lg:h-14 lg:w-14" />
       ),
     },
   ];

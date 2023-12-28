@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import cert1 from "../assets/cert1.png";
 import cert2 from "../assets/cert2.jpg";
 import cert3 from "../assets/cert3.png";
+import cert4 from "../assets/CertCode.png";
+import cert5 from "../assets/CertExcel.png";
 import { IoIosClose } from "react-icons/io";
 const Certificates = () => {
   const [file, setFile] = useState(null);
@@ -13,8 +15,20 @@ const Certificates = () => {
       src: cert1,
       dsc: "This certificates comes from the company where I did an internship upon completing ",
     },
-    { id: 2, src: cert2, type: "img" },
-    { id: 3, src: cert3, type: "img" },
+    {
+      id: 2,
+      type: "img",
+      src: cert4,
+      dsc: "This certificates comes from the company where I did an internship upon completing ",
+    },
+    {
+      id: 3,
+      type: "img",
+      src: cert5,
+      dsc: "This certificates comes from the company where I did an internship upon completing ",
+    },
+    { id: 4, src: cert2, type: "img" },
+    { id: 5, src: cert3, type: "img" },
   ];
   return (
     <div name="Certificates" className="mb-16">
