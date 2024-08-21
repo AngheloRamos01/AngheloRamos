@@ -96,27 +96,6 @@ const Projects = () => {
     },
   ];
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
-  const lastIndex = currentPage * itemsPerPage;
-  const firstIndex = lastIndex - itemsPerPage;
-  const itemsData = project.slice(firstIndex, lastIndex);
-  const numberPage = Math.ceil(project.length / itemsPerPage);
-  const numbers = [...Array(numberPage + 1).keys()].slice(1);
-
-  function prevPage() {
-    if (currentPage !== 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  }
-  function changeCurrentPage(id) {
-    setCurrentPage(id);
-  }
-  function nextPage() {
-    if (currentPage !== numberPage) {
-      setCurrentPage(currentPage + 1);
-    }
-  }
   return (
     <div name="Projects">
       <div>
@@ -124,83 +103,63 @@ const Projects = () => {
           Projects
         </h2>
       </div>
-      <div className="lg:grid lg:grid-cols-3 xl:grid-cols-3">
-        {itemsData.map(({ id, image, dsc, title, src, sample }) => (
-          <div key={id} className="mx-5 gap-1 md:gap-3 lg:gap-5 ">
-            <div className="rounded-lg w-full md:min-w-full mt-10  items-center justify-center group">
-              <div className="relative">
-                <img
-                  src={image}
-                  alt="project "
-                  className="rounded-md h-[200px] md:h-[350px] w-full order-1 md:order-2 object-center object-cover mb-10 md:mb-0 group-hover:transition ease-in duration-200 group-hover:opacity-5"
-                />
-                {src || sample !== "" ? (
-                  <div className="hidden group-hover:block hover:opacity-1 text-gray-300">
-                    {sample !== "" && (
-                      <div className="absolute top-[30%] left-[60%] text-white-600">
-                        <a href={sample}>
-                          <AiOutlineEye size={50} />
-                        </a>
-                      </div>
-                    )}
-                    {src !== "" && (
-                      <div className="absolute top-[30%] left-[30%]">
-                        <a href={src}>
-                          <BsCodeSlash size={50} />
-                        </a>
-                      </div>
-                    )}
-                    <div className="absolute top-[50%] left-[0%] text-center">
-                      <div>{title}</div>
-                      <div>{dsc}</div>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="hidden group-hover:block hover:opacity-1 text-gray-300 duration-200">
-                    <p className="absolute lg:top-[10%] xl:top-[20%] left-[10%] mx-5">
-                      NOTE: Can't show any information because its either not
-                      provided or prohibited. Sorry.
-                    </p>
 
-                    <div className="absolute lg:top-[40%] xl:top-[40%] left-[0%] text-center">
-                      <p>{title}</p>
-                      <p>{dsc}</p>
+      <div className="overflow-hidden relative">
+        <div className="flex animate-infinite-scroll space-x-16">
+          <div className="flex space-x-16">
+            <div className="flex">
+              {project.map(({ id, image, dsc, title, src, sample }) => (
+                <div
+                  key={id}
+                  className="mx-5 gap-1 md:gap-3 lg:gap-5 overflow-hidden relative"
+                  aria-hidden="true"
+                >
+                  <div className="rounded-lg mt-10 items-center justify-center group">
+                    <div className="relative">
+                      <img
+                        src={image}
+                        alt="project"
+                        className="rounded-md lg:h-[400px] lg:w-[400px] max-w-none order-1 md:order-2 object-center object-cover mb-10 md:mb-0 group-hover:transition ease-in duration-200 group-hover:opacity-5"
+                      />
+                      {(src || sample) && (
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-gray-300">
+                          {sample && (
+                            <div className="absolute top-[30%] left-[60%] text-white-600">
+                              <a href={sample} target="_blank">
+                                <AiOutlineEye size={50} />
+                              </a>
+                            </div>
+                          )}
+                          {src && (
+                            <div className="absolute top-[30%] left-[30%]">
+                              <a href={src} target="_blank">
+                                <BsCodeSlash size={50} />
+                              </a>
+                            </div>
+                          )}
+                          <div className="absolute top-[50%] left-[0%] text-center">
+                            <div>{title}</div>
+                            <div>{dsc}</div>
+                          </div>
+                        </div>
+                      )}
+                      {!src && !sample && (
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-gray-300">
+                          <p className="absolute lg:top-[10%] xl:top-[20%] left-[10%] mx-5">
+                            NOTE: Can't show any information because it's either
+                            not provided or prohibited. Sorry.
+                          </p>
+                          <div className="absolute lg:top-[40%] xl:top-[40%] left-[0%] text-center">
+                            <p>{title}</p>
+                            <p>{dsc}</p>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
-                )}
-              </div>
-            </div>
-          </div>
-        ))}
-        {/* pagination button */}
-        <div className=" grid col-span-3 items-center justify-center text-white ">
-          <div className="flex gap-10 mt-5">
-            <button>
-              <a href="#" onClick={prevPage}>
-                Prev
-              </a>
-            </button>
-            <p className="flex gap-5">
-              {numbers.map((num, id) => (
-                <button
-                  className={`${currentPage === num ? "bg-blue-700 p-2" : ""}`}
-                  key={id}
-                >
-                  <a
-                    href="#"
-                    className=""
-                    onClick={() => changeCurrentPage(num)}
-                  >
-                    {num}
-                  </a>
-                </button>
+                </div>
               ))}
-            </p>
-            <button>
-              <a href="#" className="" onClick={nextPage}>
-                Next
-              </a>
-            </button>
+            </div>
           </div>
         </div>
       </div>

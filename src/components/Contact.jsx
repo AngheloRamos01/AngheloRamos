@@ -45,7 +45,7 @@ const Contact = () => {
               ></textarea>
 
               <button className="text-white bg-cyan-500 font-goldman flex items-center px-6 py-3 mt-5 mb-8 mx-auto rounded-md hover:scale-110 duration-300">
-                Sent
+                Send
               </button>
             </form>
           </div>
