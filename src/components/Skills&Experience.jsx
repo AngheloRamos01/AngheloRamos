@@ -99,7 +99,7 @@ const Skills = () => {
       ),
     },
     {
-      id: 12,
+      id: 13,
       name: "Laravel",
       child: (
         <FaLaravel className="h-8 w-8 sm:h-9 sm:w-9 md:h-12 md:w-12 lg:h-14 lg:w-14" />
