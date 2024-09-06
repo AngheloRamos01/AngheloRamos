@@ -5,8 +5,8 @@ import cert3 from "../assets/cert3.png";
 import cert4 from "../assets/CertCode.png";
 import cert5 from "../assets/CertExcel.png";
 import cert6 from "../assets/CertAccenture.png";
-import cert7 from "../assets/CertJavascript.png";
-import cert8 from "../assets/CertResponsive.png";
+import cert7 from "../assets/JavaScript Algorithms and Data Structures Certificate.PNG";
+import cert8 from "../assets/Responsive Web Design Certificate.PNG";
 import { IoIosClose } from "react-icons/io";
 const Certificates = () => {
   const [file, setFile] = useState(null);
