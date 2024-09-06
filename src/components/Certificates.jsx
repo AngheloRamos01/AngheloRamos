@@ -4,6 +4,7 @@ import cert2 from "../assets/cert2.jpg";
 import cert3 from "../assets/cert3.png";
 import cert4 from "../assets/CertCode.png";
 import cert5 from "../assets/CertExcel.png";
+import cert6 from "../assets/CertAccenture.png";
 import { IoIosClose } from "react-icons/io";
 const Certificates = () => {
   const [file, setFile] = useState(null);
@@ -29,6 +30,7 @@ const Certificates = () => {
     },
     { id: 4, src: cert2, type: "img" },
     { id: 5, src: cert3, type: "img" },
+    { id: 6, src: cert6, type: "img" },
   ];
   return (
     <div name="Certificates" className="mb-16">
